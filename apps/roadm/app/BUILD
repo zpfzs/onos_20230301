@@ -1,7 +1,8 @@
-COMPILE_DEPS = CORE_DEPS + JACKSON + [
+COMPILE_DEPS = CORE_DEPS + JACKSON + NETTY + CLI + [
     "//core/store/serializers:onos-core-serializers",
     "//apps/optical-model:onos-apps-optical-model",
 ]
+
 
 TEST_DEPS = TEST_ADAPTERS + [
     "//utils/osgi:onlab-osgi-tests",

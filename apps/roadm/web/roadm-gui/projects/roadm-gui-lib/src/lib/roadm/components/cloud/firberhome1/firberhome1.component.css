@@ -193,11 +193,17 @@ margin-right:120px;
 #delete_but{
 float:right;
 margin-right:80px;
-margin-top:75px;
+margin-top:50px;
 }
 #delete_span{
 margin-top:15px;
 }
 #DeleteVm{
 width:120px;
+}
+
+
+
+span select{
+width:215px;
 }

@@ -28,6 +28,11 @@ import org.onosproject.ui.UiConnection;
 import org.onosproject.ui.UiMessageHandler;
 import org.onosproject.ui.table.TableModel;
 import org.onosproject.ui.table.TableRequestHandler;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+//import org.json.JSONObject;
+//import org.json.JSONException;
+
 
 import java.util.Collection;
 
@@ -56,6 +61,11 @@ public class RoadmDeviceViewMessageHandler extends UiMessageHandler {
     private static final String HI_SGP_RESP = "hiResponse";
     private static final String THERECEIVE = "receive message";
 
+    private static final String STATUS="status";
+    private static final String USER_NAME="user_name";
+    private static final String TENANT_NAME="tenant_name";
+    private static final String CREATE_TIME="creat_time";
+
     //发送字符
     public String theFirst;
     public String theSecond;
@@ -65,6 +75,7 @@ public class RoadmDeviceViewMessageHandler extends UiMessageHandler {
     private static final String THE_FIRST_WORD = "thefirstword";
     private static final String THE_SECOND_WORD = "thesecondworld";
 
+    private final Logger log = LoggerFactory.getLogger(getClass());
 
     private static final String[] COLUMN_IDS = {
             ID, NAME, TYPE, MASTER, PORTS, VENDOR, HW_VERSION, SW_VERSION, PROTOCOL
@@ -139,15 +150,126 @@ public class RoadmDeviceViewMessageHandler extends UiMessageHandler {
         @Override
         public void process(ObjectNode payload) {
             theFirst = string(payload, THE_FIRST_WORD);
-//            log.info("The first word : {}", theFirst);
+            log.info("The first word : {}",theFirst);
             theSecond = string(payload, THE_SECOND_WORD);
-//            log.info("The second word : {}", theSecond);
+            log.info("The second word : {}",theSecond);
 
-            String theResponse = "hi sgp";
+//            String str_t=""
+//            String str_t = " {\n" +
+//                    "            \"OS-EXT-STS:task_state\": null,\n" +
+//                    "            \"addresses\": {},\n" +
+//                    "            \"links\": [\n" +
+//                    "                {\n" +
+//                    "                    \"href\": \"https://10.190.85.44:8774/v2.1/servers/e00d7561-75af-434d-8d4d-b702d07b3231\",\n" +
+//                    "                    \"rel\": \"self\"\n" +
+//                    "                },\n" +
+//                    "                {\n" +
+//                    "                    \"href\": \"https://10.190.85.44:8774/servers/e00d7561-75af-434d-8d4d-b702d07b3231\",\n" +
+//                    "                    \"rel\": \"bookmark\"\n" +
+//                    "                }\n" +
+//                    "            ],\n" +
+//                    "            \"image\": {\n" +
+//                    "                \"id\": \"8847719c-f78b-41ab-ad72-43d427534560\",\n" +
+//                    "                \"links\": [\n" +
+//                    "                    {\n" +
+//                    "                        \"href\": \"https://10.190.85.44:8774/images/8847719c-f78b-41ab-ad72-43d427534560\",\n" +
+//                    "                        \"rel\": \"bookmark\"\n" +
+//                    "                    }\n" +
+//                    "                ]\n" +
+//                    "            },\n" +
+//                    "            \"OS-EXT-STS:vm_state\": \"error\",\n" +
+//                    "            \"OS-EXT-SRV-ATTR:instance_name\": \"instance-00000009\",\n" +
+//                    "            \"OS-SRV-USG:launched_at\": null,\n" +
+//                    "            \"flavor\": {\n" +
+//                    "                \"id\": \"4U8G100G\",\n" +
+//                    "                \"links\": [\n" +
+//                    "                    {\n" +
+//                    "                        \"href\": \"https://10.190.85.44:8774/flavors/4U8G100G\",\n" +
+//                    "                        \"rel\": \"bookmark\"\n" +
+//                    "                    }\n" +
+//                    "                ]\n" +
+//                    "            }\n" +
+//                    "}";
+//            try {
+//                JSONObject json = new JSONObject();
+//                json.put("sd","sdf");
+//
+//
+//            }catch (JSONException e){
+//                e.printStackTrace();
+//            }
+//            String theUSER_ID = json.getString("sd");
+//            public void JSONObject createJSONObject() throws JSONException {
+//                JSONObject jsonObject = new JSONObject();
+//                jsonObject.put("sd","sdf");
+//                return jsonObject;
+//            }
+//            String theUSER_ID = createJSONObject.getString("sd");
 
+
+//            String str_t = "{\"name\":\"Yolo\",\"Address\":\"Beijing\"}";
+//            JSONObject jsonObject = JSON.parseObject(str_t);
+//            String theUSER_ID = jsonObject.getString("name");
+
+
+//            String theResponse = "hi yike";
+//            String theSTATUS = "receive message11";
+//            String theUSER_NAME = "admin";
+//            String theTENANT_NAME = "admin";
+//            String theCREATE_TIME = "2023-02-10 16:42:53";
+
+
+            String theGet = "{\n" +
+                    "    \"code\": 0,\n" +
+                    "    \"msg\": \"响应成功\",\n" +
+                    "    \"data\": {\n" +
+                    "        \"total\": 2,\n" +
+                    "        \"neList\": [\n" +
+                    "            {\n" +
+                    "                \"id\": \"78\",\n" +
+                    "                \"password\": \"fiberhome\",\n" +
+                    "                \"username\": \"fiberhome\",\n" +
+                    "                \"snId\": \"344b00000100\",\n" +
+                    "                \"customName\": \"78\",\n" +
+                    "                \"managerIp\": \"10.190.85.78/24\",\n" +
+                    "                \"status\": \"connected\",\n" +
+                    "                \"nodeId\": \"78\",\n" +
+                    "                \"version\": \"V1R2-2021-10-19-21:57:28\",\n" +
+                    "                \"mergeNe\": \"78\",\n" +
+                    "                \"deviceType\": \"device\",\n" +
+                    "                \"timezone\": \"Asia/Shanghai\"\n" +
+                    "            },\n" +
+                    "            {\n" +
+                    "                \"id\": \"79\",\n" +
+                    "                \"password\": \"fiberhome\",\n" +
+                    "                \"username\": \"fiberhome\",\n" +
+                    "                \"snId\": \"344b00000101\",\n" +
+                    "                \"customName\": \"79\",\n" +
+                    "                \"managerIp\": \"10.190.85.79/24\",\n" +
+                    "                \"status\": \"connected\",\n" +
+                    "                \"nodeId\": \"79\",\n" +
+                    "                \"version\": \"V1R2-2021-10-19-21:57:28\",\n" +
+                    "                \"mergeNe\": \"79\",\n" +
+                    "                \"deviceType\": \"device\",\n" +
+                    "                \"timezone\": \"Asia/Shanghai\"\n" +
+                    "            }\n" +
+                    "        ],\n" +
+                    "        \"chassisList\": null,\n" +
+                    "        \"cardList\": null,\n" +
+                    "        \"portList\": null\n" +
+                    "    }\n" +
+                    "}";
+
+//
             ObjectNode test = objectNode();
-            test.put(THERECEIVE, theResponse);
-            //riskLink.put(LINK_RISK_ID,linkId);
+////            test.put(STATUS, theSTATUS);
+////            test.put(USER_NAME, theUSER_NAME);
+////            test.put(TENANT_NAME, theTENANT_NAME);
+////            test.put(CREATE_TIME, theCREATE_TIME);
+////            test.put(THERECEIVE, theResponse);
+////            test.put(THERECEIVE, theUSER_ID);
+            test.put(THERECEIVE, theGet);
+//            //riskLink.put(LINK_RISK_ID,linkId);
             sendMessage(HI_SGP_RESP, test);
 
         }

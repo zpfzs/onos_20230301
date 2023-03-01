@@ -1,0 +1,59 @@
+<body>
+<div id="panel1">
+  <div class="div_title">
+    <img [src]="pic3"><p>设备统计</p>
+    <div class="clear"></div>
+    <hr>
+  </div>
+  <div id="part11">
+    <div id="defend">
+      <img class="con_img" [src]="pic4"><p class="con_p">防火墙</p>
+      <div class="clear"></div>
+      <p class="led">{{defender}}</p>
+    </div>
+    <div id="wlan">
+      <img class="con_img" [src]="pic5"><p class="con_p">网关</p>
+      <div class="clear"></div>
+      <p class="led">{{wlan}}</p>
+    </div>
+    <div class="clear"></div>
+    <div id="switch">
+      <img class="con_img" [src]="pic6"><p class="con_p">交换机</p>
+      <div class="clear"></div>
+      <p class="led">{{switch}}</p>
+    </div>
+    <div id="server">
+      <img class="con_img" [src]="pic7"><p class="con_p">服务器</p>
+      <div class="clear"></div>
+      <p class="led">{{server}}</p>
+    </div>
+    <div class="clear"></div>
+  </div>
+  <div id="part12">
+    <p>端口利用率>50%的设备</p>
+    <div id="chart1"></div>
+  </div>
+  <div class="clear"></div>
+</div>
+<div id="panel2">
+  <div class="div_title">
+    <img [src]="pic3"><p>端口统计</p>
+    <div class="clear"></div>
+    <hr>
+  </div>
+  <div id="part2">
+    <div id="part21"></div>
+    <div id="part22"></div>
+    <div class="clear"></div>
+  </div>
+</div>
+<div class="clear"></div>
+<div id="panel3">
+  <div class="div_title">
+    <img [src]="pic3"><p>控制器统计</p>
+    <div class="clear"></div>
+    <hr>
+  </div>
+  <div id="part3"></div>
+</div>
+</body>

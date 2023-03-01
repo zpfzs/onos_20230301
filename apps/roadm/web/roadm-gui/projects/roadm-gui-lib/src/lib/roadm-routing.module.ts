@@ -24,6 +24,10 @@ import { Firberhome1Component } from './roadm/components/cloud/firberhome1/firbe
 import { AuxiliaryComponent } from './roadm/components/topology/auxiliary/auxiliary.component';
 import { VirtualComponent } from './roadm/components/topology/virtual/virtual.component';
 import { XinjiangComponent } from './roadm/components/topology/xinjiang/xinjiang.component';
+import { Firberhome2Component } from './roadm/components/cloud/firberhome2/firberhome2.component';
+import { SimuComponent } from './roadm/components/topology/simu/simu.component';
+import { DciComponent } from './roadm/components/network/dci/dci.component';
+import { DcnComponent } from './roadm/components/network/dcn/dcn.component';
 
 const appRoutes: Routes = [
     {
@@ -55,6 +59,10 @@ const appRoutes: Routes = [
                                 component: XinjiangComponent
                             },
                             {
+                                path: 'simu',
+                                component: SimuComponent
+                            },
+                            {
                                 path: '',
                                 redirectTo: 'virtual'
                             }
@@ -71,6 +79,18 @@ const appRoutes: Routes = [
                      {
                          path: 'fiberhome1',
                          component: Firberhome1Component
+                     },
+                     {
+                         path: 'fiberhome2',
+                         component: Firberhome2Component
+                     },
+                     {
+                         path: 'dci',
+                         component: DciComponent
+                     },
+                     {
+                         path: 'dcn',
+                         component: DcnComponent
                      }
         ]
     },
